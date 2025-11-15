@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "channels",
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,6 +43,15 @@ INSTALLED_APPS = [
     "corsheaders",
     'Voxa',
 ]
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",  # must be at the top, before CommonMiddleware

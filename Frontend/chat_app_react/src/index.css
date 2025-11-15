@@ -19,7 +19,9 @@
   --color-text: #5D4330;        /* dark brown text */
   --color-accent: #C6A78D;      /* lighter accent */
   --color-accent-dark: #96755B; /* darker accent */
-  --color-border: #D5BFAA;      /* soft border color */
+  --color-border: #D5BFAA;  
+      /* soft border color */
+  --color-bg-tra:rgba(90, 52, 2, 0.103);
 }
 
 .dark {
@@ -31,11 +33,13 @@
   --color-accent: #C6A78D;      
   --color-accent-dark: #96755B; 
   --color-border: #7A6E62;      
-}
 
+  --color-bg-tra:rgba(83, 61, 29, 0.371);
+}
+/* 
 html {
   transition: background-color 0.5s ease, color 0.5s ease;
-}
+} */
 
 /* Thin scrollbar */
 ::-webkit-scrollbar {
