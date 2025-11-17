@@ -1,10 +1,12 @@
 import React, { useState,useEffect } from "react";
 import { DarkModeToggle } from "../DarkModeToggle";
 import { ThemeSettings } from "../ThemeSettings";
+import { useNavigate } from "react-router-dom";
 
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate()
 
   // Optional: toggle dark class on <html> for theme switching
 //   useEffect(() => {
@@ -81,7 +83,11 @@ const Navbar = () => {
               href="#"
               className="py-2 px-3 rounded hover:bg-[var(--color-accent)] hover:text-[var(--color-primary-dark)] transition"
             >
-              Profile
+              <button onClick={() => navigate("/logout")}>
+  Logout
+</button>
+
+            
             </a>
           </div>
         </div>

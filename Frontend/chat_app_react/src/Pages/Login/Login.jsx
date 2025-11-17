@@ -86,9 +86,10 @@ export default function LoginRegister() {
         VoxaChat
       </h1>
 
-      <button className="absolute top-5 right-5">
-        <DarkModeToggle />
-      </button>
+      <div className="absolute top-5 right-5">
+  <DarkModeToggle />
+</div>
+
 
       <div className="w-full max-w-md bg-bg bg-opacity-90 backdrop-blur-md rounded-xl shadow-2xl p-8 relative overflow-hidden border border-border transition-colors duration-700">
         <div className="flex justify-center mb-10 space-x-14">

@@ -32,6 +32,7 @@ DEBUG = True
 
 INSTALLED_APPS = [
     "channels",
+    "corsheaders",
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'User',
-    "corsheaders",
     'Voxa',
 ]
 
@@ -164,8 +164,13 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",       # For your local React/Vue/Svelte development
     "http://127.0.0.1:3000",
-    "https://yourproductionfrontend.com", # Your actual production domain
+    "https://voxachat.netlify.app/", # Your actual production domain
 ]
+# CORS_ALLOWED_ORIGINS = [
+#     "https://voxachat.netlify.app",
+#     "http://localhost:3000",  # for local dev
+# ]
+CORS_ALLOW_CREDENTIALS = True
 
 from datetime import timedelta
 

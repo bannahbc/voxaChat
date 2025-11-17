@@ -8,10 +8,10 @@ const HomePage = () => {
   const [selectedContact, setSelectedContact] = useState(null);
 
   return (
-  <div className="flex flex-col h-screen bg-[var(--color-bg)] text-[var(--color-text)] overflow-hidden">
-  <header className="sticky top-0 z-50 shadow-md h-16">
+  <div className="">
+  {/* <header className="sticky top-0 z-50 shadow-md h-16">
     <Navbar />
-  </header>
+  </header> */}
 
   <main className="flex flex-1 h-[calc(100vh-4rem)] w-full">
     {/* Sidebar */}
