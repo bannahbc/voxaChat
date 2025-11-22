@@ -28,11 +28,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k@p8(u5ym4nfrzvpurs8+%u93j8zq#t&rua6p#4!!a$7yb06*9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
 # ALLOWED_HOSTS = []
+CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+# CSRF_TRUSTED_ORIGINS = [
+#     "https://voxachat-88fl.onrender.com",
+#     "https://your-react-frontend.onrender.com",
+# ]
 
 
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+DEBUG = os.getenv("DEBUG", "False") == "True"
+# ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 # Application definition
 
 INSTALLED_APPS = [
@@ -182,6 +191,8 @@ REST_FRAMEWORK = {
     ),
 }
 
+# CORS settings
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",       # For your local React/Vue/Svelte development
     "http://127.0.0.1:3000",
@@ -219,3 +230,23 @@ ASGI_APPLICATION = "livechatapp.asgi.application"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+
+# Other important checks
+# Cookies enabled: Ensure your browser accepts cookies, since CSRF tokens are tied to them.
+
+# Frontend requests: If you’re using fetch or Axios in React, include credentials and CSRF headers:
+
+# js
+# fetch("https://voxachat-88fl.onrender.com/api/endpoint/", {
+#   method: "POST",
+#   credentials: "include",
+#   headers: {
+#     "X-CSRFToken": getCookie("csrftoken"),
+#     "Content-Type": "application/json",
+#   },
+#   body: JSON.stringify(data),
+# })
+# Template forms: If you’re using Django templates, make sure every <form method="POST"> includes {% csrf_token %}.
+
+# Deployment: On Render, environment variables should be set in the dashboard, not in .env files committed to Git.
